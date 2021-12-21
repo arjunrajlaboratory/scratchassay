@@ -3,15 +3,11 @@ function [maxArea,outputImage] = measureArea(inputImage)
     %im = imread(imagefile);
     im = inputImage;
 
-    h = fspecial('log',30,5);
-    imshow(imfilter(im,h),[]);
-
     im2 = edge(im,'Canny');
 
-    SE = strel('disk',5);
-    im3 = imdilate(im2,SE);
+    im3 = imdilate(im2,strel('disk',5));
     imshow(im3,[])
-    im4 = imerode(im3,SE);
+    im4 = imerode(im3,strel('disk',10));
     imshow(im4,[])
 
     im5 = ~im4;
