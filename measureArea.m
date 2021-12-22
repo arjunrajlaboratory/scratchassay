@@ -31,7 +31,7 @@ function [maxArea,outputImage] = measureArea(inputImage)
     pixels = bw.PixelIdxList{idx};
     maskIm = zeros(size(im));
     maskIm(pixels) = 1;
-    imshow(maskIm);
+    %imshow(maskIm);
 
     im5 = scale(im);
     RGB = cat(3, im5 + 0.2*maskIm, im5, im5);
