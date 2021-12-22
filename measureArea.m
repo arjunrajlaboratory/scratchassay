@@ -11,13 +11,6 @@ function [maxArea,outputImage] = measureArea(inputImage)
     imshow(im4,[])
 
     im5 = ~im4;
-    
-    topbottom = false(size(im5));
-    topbottom(1,:) = true;
-    topbottom(end,:) = true;
-    edgeStuff = imreconstruct(topbottom,im5);
-    im5 = im5 & ~edgeStuff;
-    
     imshow(im5);
 
     bw = bwconncomp(im5);
